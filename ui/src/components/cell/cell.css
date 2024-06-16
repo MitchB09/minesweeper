@@ -1,0 +1,60 @@
+.cell {
+  border: 1px white solid;
+  background-color: rgb(159, 156, 156);
+  color: black;
+  height: 2em;
+  width: 2em;
+  position: relative;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .cell {
+    font-size: 2.625vmin
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .cell {
+    height: 2em
+  }
+
+  .value {
+    height: 2em !important;
+  }
+}
+
+
+.block {
+  background-color: rgb(91, 190, 99);
+  border: 1px white solid;
+  height: 2em;
+  width: 2em;
+}
+
+.circled {
+  border: 1px solid black;
+  border-radius: 1em;
+  height: 2em;
+  width: 2em;
+}
+
+.shaded {
+  background-color: lightgray;
+  height: 2em;
+  width: 2em;
+}
+
+.number {
+  font-size: 0.75em;
+  color: black;
+  position: relative;
+  top: -0.5em;
+  padding: 0.1em;
+}
+
+.value {
+  position: relative;
+  margin: '0em';
+  padding: '0em';
+}
