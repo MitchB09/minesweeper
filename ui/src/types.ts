@@ -14,7 +14,7 @@ export enum CellGuess {
 
 export interface MinesweeperCell {
   number?: number
-  mode?: CellMode
+  mode: CellMode
   mined: boolean
   guess: CellGuess
 }

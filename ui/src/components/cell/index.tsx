@@ -1,7 +1,7 @@
 import React from "react";
-import { updateCell } from "../../redux/boardSlice";
-import { useAppDispatch } from "../../redux/hooks";
-import { CellGuess, CellIndex, CellMode, MinesweeperCell } from "../../types";
+import { clickCell, postBoard, updateCell } from "../../redux/boardSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { CellGuess, CellIndex, CellMode, MinesweeperBoard, MinesweeperCell } from "../../types";
 import FlagIcon from '@mui/icons-material/Flag';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import ErrorIcon from '@mui/icons-material/Error';
@@ -14,8 +14,14 @@ interface CellProps {
 
 function Cell(props: CellProps) {
   const { cell, index } = props;
+  const { board } = useAppSelector((state) => state.minesweeperBoard);
+
+  if (!board) {
+    throw Error("No board selected for update");
+  }
 
   const dispatch = useAppDispatch();
+
   const getClassByMode = (mode?: CellMode) => {
     switch (mode) {
       case CellMode.HIDDEN:
@@ -25,13 +31,13 @@ function Cell(props: CellProps) {
     }
   };
 
+
   return (
     <div className="cell">
       <div className={getClassByMode(cell.mode)}
         onContextMenu={(e) => {
           e.stopPropagation();
           e.preventDefault();
-          console.dir("Richt Click");
           let guess: CellGuess;
           if (cell.guess === CellGuess.NONE) {
             guess = CellGuess.FLAGGED;
@@ -46,16 +52,9 @@ function Cell(props: CellProps) {
           }));
         }}
         onClick={() => {
-          console.dir("Left Click")
-          dispatch(
-            updateCell({
-              index,
-              cell: {
-                ...cell,
-                mode: CellMode.REVEALED,
-              },
-            })
-          );
+          dispatch(clickCell({
+            index: index
+          }));
         }}>
         {cell.mode === CellMode.HIDDEN && cell.guess === CellGuess.FLAGGED && (
           <FlagIcon />
@@ -63,7 +62,8 @@ function Cell(props: CellProps) {
         {cell.mode === CellMode.HIDDEN && cell.guess === CellGuess.UNKNOWN && (
           <QuestionMarkIcon />
         )}
-        {cell.mined ? <ErrorIcon /> : cell.number ? cell.number : ""}
+        {cell.mode === CellMode.REVEALED &&
+          (cell.mined ? <ErrorIcon /> : cell.number ? cell.number : "")}
       </div>
     </div>
   );

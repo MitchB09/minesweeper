@@ -1,6 +1,6 @@
-# Crosswords
+# Minesweepers
 
-Allows for creating, and cooperatively doing crossword puzzles 
+Allows for creating, and cooperatively doing minesweeper puzzles 
 
 ## Running UI
 

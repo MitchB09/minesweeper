@@ -3,9 +3,9 @@ version = 0.1
 [dev]
 [dev.deploy]
 [dev.deploy.parameters]
-stack_name = "crossword-dev"
+stack_name = "minesweeper-dev"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1iriw7pcgy02w"
-s3_prefix = "crossword-dev"
+s3_prefix = "minesweeper-dev"
 region = "us-east-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"
@@ -16,9 +16,9 @@ image_repositories = []
 [prod]
 [prod.deploy]
 [prod.deploy.parameters]
-stack_name = "crosswords"
+stack_name = "minesweeper"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1iriw7pcgy02w"
-s3_prefix = "crosswords"
+s3_prefix = "minesweeper"
 region = "us-east-1"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"

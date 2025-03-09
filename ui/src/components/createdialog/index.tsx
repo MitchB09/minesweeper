@@ -179,7 +179,7 @@ function CreateDialog(props: DialogProps) {
                 if (val === "") {
                   setMines(40);
                 } else {
-                  setHeight(
+                  setMines(
                     isNaN(+event.target.value) ? 40 : +event.target.value
                   );
                 }

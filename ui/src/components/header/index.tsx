@@ -19,7 +19,7 @@ function Header() {
     >
       <Grid item>
         <Link href="/" style={{ color: "white", textDecoration: "none" }}>
-          <Typography variant="h5">Crosswords</Typography>
+          <Typography variant="h5">Minesweeper</Typography>
         </Link>
       </Grid>
       <Grid flexGrow={1} />

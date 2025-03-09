@@ -1,6 +1,6 @@
 {
-  "short_name": "Crosswords",
-  "name": "Crossword Puzzles",
+  "short_name": "Minesweeper",
+  "name": "Minesweeper",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "Crossword.png",
+      "src": "Minesweeper.png",
       "type": "image/png",
       "sizes": "192x192"
     }
